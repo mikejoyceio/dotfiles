@@ -1,0 +1,20 @@
+" Syntax highlighting
+syntax on
+
+" Show line numbers
+set number
+
+" Disable swapfile
+set noswapfile
+
+" Highlight all results
+set hlsearch
+
+" Ignore case in search
+set ignorecase
+
+" Show search results as you type
+set incsearch
+
+" Cursor line highlight
+set cursorline
