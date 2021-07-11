@@ -1,0 +1,30 @@
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Directory Shortcuts
+alias home='cd ~/'
+alias dev='cd ~/Development'
+
+# Open Browsers
+alias ff='open -a Firefox'
+alias chr='open -a Google Chrome'
+alias saf='open -a Safari'
+
+# Close Browsers
+alias qff="osascript -e 'quit app "'"Firefox"'"'"
+alias qchr="osascript -e 'quit app "'"Google Chrome"'"'"
+alias qsaf="osascript -e 'quit app "'"Safari"'"'"
+
+# Run Python Simple Server
+alias pyserve='python -m SimpleHTTPServer'
+
+# Clear terminal
+alias c='clear'
+
+# Reload shell
+alias reload="exec ${SHELL} -l"
