@@ -9,6 +9,7 @@ PACKAGES=(
   docker
   gatsby-cli
   mas
+  netlify-cli
   node
   nvm
   spoof-mac
