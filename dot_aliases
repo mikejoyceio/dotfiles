@@ -27,3 +27,6 @@ alias c='clear'
 
 # Reload shell
 alias reload="exec ${SHELL} -l"
+
+# Laravel
+alias sail='bash vendor/bin/sail'
