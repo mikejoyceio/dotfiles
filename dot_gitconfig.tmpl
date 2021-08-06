@@ -1,3 +1,20 @@
 [user]
 	name = {{ .git.name }}
 	email = {{ .git.email }}
+[alias]
+	a = add
+	cm = commit -m
+	cma = commit -am
+	conf = config --global -l
+	d = diff
+	dv = difftool -t vimdiff -y
+	fl = log -u
+	graph = log --oneline --graph --decorate
+	l = log
+	last = log -1 HEAD --stat
+	ll = log --oneline
+	r = reset HEAD
+	rm = remote -v
+	se = !git rev-list --all | xargs git grep -F
+	st = status -sb
+	undo = reset --soft HEAD^
