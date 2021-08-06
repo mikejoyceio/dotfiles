@@ -18,3 +18,11 @@ set incsearch
 
 " Cursor line highlight
 set cursorline
+
+" Vim Plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'wakatime/vim-wakatime'
+
+" Initialize plugin system
+call plug#end()
