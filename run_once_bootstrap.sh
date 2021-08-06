@@ -60,6 +60,12 @@ if test ! $(which xcode-select); then
  xcode-select --install
 fi
 
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+ echo "Installing Vim Plug..."
+ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
 # Check if Homebrew is present, install if not
 if test ! $(which brew); then
  echo "Installing Homebrew..."
