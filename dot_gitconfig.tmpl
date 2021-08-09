@@ -3,8 +3,11 @@
 	email = {{ .git.email }}
 [alias]
 	a = add
-	cm = commit -m
-	cma = commit -am
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	c = commit -m
+	ca = commit -am
+	co = checkout
+	cob = checkout -b
 	conf = config --global -l
 	d = diff
 	dv = difftool -t vimdiff -y
@@ -13,8 +16,7 @@
 	l = log
 	last = log -1 HEAD --stat
 	ll = log --oneline
-	r = reset HEAD
-	rm = remote -v
+	r = reset
+	s = status
 	se = !git rev-list --all | xargs git grep -F
-	st = status -sb
-	undo = reset --soft HEAD^
+	undo = reset --soft HEAD~1
