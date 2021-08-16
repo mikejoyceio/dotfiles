@@ -28,6 +28,7 @@ CASKS=(
   keybase
   lepton
   pixelsnap
+  postman
   sip
   sizzy
   sketch
