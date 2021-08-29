@@ -19,12 +19,10 @@ PACKAGES=(
 
 # Homebrew casks
 CASKS=(
-  1password
   1password-cli
   atom
   gifox
   gimp
-  google-chrome
   keybase
   lepton
   pixelsnap
@@ -39,6 +37,8 @@ CASKS=(
 
 # Mac App Store apps
 MAS=(
+  # 1password
+  1333542190
   # Bear
   1091189122
   # LINE
@@ -78,6 +78,7 @@ brew update
 
 echo "Install Homebrew packages..."
 brew install ${PACKAGES[@]}
+
 
 echo "Install Homebrew casks..."
 brew install --cask ${CASKS[@]}
