@@ -5,9 +5,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-# Directory Shortcuts
-alias home='cd ~/'
-alias dev='cd ~/Development'
+# Directory Aliases
+{{ range $key, $value := .aliases.directories -}}
+alias {{ $key }}='cd {{ $value }}'
+{{ end }}
 
 # Open Browsers
 alias ff='open -a Firefox'
