@@ -16,8 +16,10 @@
 	l = log
 	last = log -1 HEAD --stat
 	ll = log --oneline
-	pd = push origin develop
-	pm = push origin master
+	phd = push origin develop
+	phm = push origin master
+	pld = pull origin develop
+	plm = pull origin master
 	r = reset
 	s = status
 	se = !git rev-list --all | xargs git grep -F
