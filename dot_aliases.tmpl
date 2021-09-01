@@ -10,6 +10,11 @@ alias ......="cd ../../../../.."
 alias {{ $key }}='cd {{ $value }}'
 {{ end }}
 
+# SSH Aliases
+{{ range $key, $value := .aliases.ssh -}}
+alias {{ $key }}='ssh {{ $value }}'
+{{ end }}
+
 # Open Browsers
 alias ff='open -a Firefox'
 alias chr='open -a Google Chrome'
