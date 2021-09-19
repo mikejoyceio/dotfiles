@@ -9,6 +9,7 @@ PACKAGES=(
   docker
   gatsby-cli
   gnupg
+  localstack
   mas
   netlify-cli
   node
