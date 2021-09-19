@@ -56,19 +56,20 @@ MAS=(
 
 echo "Starting macOS bootstrap"
 
-# Check if Install Xcode CLI is present, install if not
+# Install Xcode CLI
 if test ! $(which xcode-select); then
  echo "Install Xcode CLI..."
  xcode-select --install
 fi
 
+# Install Vim Plug
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
  echo "Installing Vim Plug..."
  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# Check if Homebrew is present, install if not
+# Install Homebrew
 if test ! $(which brew); then
  echo "Installing Homebrew..."
  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
