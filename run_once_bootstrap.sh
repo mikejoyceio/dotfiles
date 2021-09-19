@@ -4,6 +4,7 @@
 
 # Homebrew packages
 PACKAGES=(
+  awscli
   bash-completion
   bash-git-prompt
   docker
