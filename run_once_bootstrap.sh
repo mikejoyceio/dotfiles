@@ -13,6 +13,7 @@ PACKAGES=(
   netlify-cli
   node
   nvm
+  postgresql@12
   spoof-mac
   tldr
   yarn
