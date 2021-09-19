@@ -8,6 +8,7 @@ PACKAGES=(
   bash-git-prompt
   docker
   gatsby-cli
+  gnupg
   mas
   netlify-cli
   node
@@ -79,7 +80,6 @@ brew update
 echo "Install Homebrew packages..."
 brew install ${PACKAGES[@]}
 
-
 echo "Install Homebrew casks..."
 brew install --cask ${CASKS[@]}
 
@@ -92,5 +92,9 @@ brew install themekit
 
 echo "Clean up Homebrew"
 brew cleanup
+
+# Install RVM
+gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+\curl -sSL https://get.rvm.io | bash -s stable
 
 echo "macOS bootstrap complete!"
