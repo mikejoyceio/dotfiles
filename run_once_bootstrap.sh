@@ -102,6 +102,7 @@ gpg --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB82D3
 \curl -sSL https://get.rvm.io | bash -s stable
 
 # Create PostgreSQL User
+brew services restart postgresql
 /usr/local/opt/postgres/bin/createuser -s postgres
 
 echo "macOS bootstrap complete!"
