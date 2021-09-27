@@ -36,3 +36,9 @@ alias reload="exec ${SHELL} -l ; . ~/.zshrc"
 
 # Laravel
 alias sail='bash vendor/bin/sail'
+
+# PostgreSQL
+alias pgstart='brew services start postgresql'
+alias pgstop='brew services stop postgresql'
+alias pgrestart='brew services restart postgresql'
+alias pgstatus='brew services list | grep postgres'
