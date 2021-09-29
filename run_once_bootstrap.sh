@@ -25,6 +25,7 @@ PACKAGES=(
 CASKS=(
   1password-cli
   atom
+  firefox
   gifox
   gimp
   keybase
