@@ -24,3 +24,5 @@
 	s = status
 	se = !git rev-list --all | xargs git grep -F
 	undo = reset --soft HEAD~1
+[core]
+	excludesfile = /Users/{{ .system.user }}/.gitignore
