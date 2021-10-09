@@ -42,3 +42,9 @@ alias pgstart='brew services start postgresql'
 alias pgstop='brew services stop postgresql'
 alias pgrestart='brew services restart postgresql'
 alias pgstatus='brew services list | grep postgres'
+
+# Rails
+alias rc='rails console -e development'
+alias rdbm='rails db:migrate RAILS_ENV=development'
+alias rdbrp='rails db:seed:replant'
+alias rdbr='rails db:reset'
