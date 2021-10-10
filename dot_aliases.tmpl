@@ -48,3 +48,7 @@ alias rc='rails console -e development'
 alias rdbm='rails db:migrate RAILS_ENV=development'
 alias rdbrp='rails db:seed:replant'
 alias rdbr='rails db:reset'
+
+# Docker
+alias dsa='docker stop $(docker ps -aq)'
+alias dra='docker rm $(docker ps -aq)'
