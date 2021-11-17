@@ -26,6 +26,7 @@ PACKAGES=(
 CASKS=(
   1password-cli
   atom
+  figma
   firefox
   gifox
   gimp
