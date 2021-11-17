@@ -7,6 +7,7 @@ PACKAGES=(
   awscli
   bash-completion
   bash-git-prompt
+  contentful-cli
   docker
   gatsby-cli
   gnupg
