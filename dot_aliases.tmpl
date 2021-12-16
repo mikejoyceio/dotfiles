@@ -52,3 +52,7 @@ alias rdbr='rails db:reset'
 # Docker
 alias dsa='docker stop $(docker ps -aq)'
 alias dra='docker rm $(docker ps -aq)'
+
+# SSH Keys
+alias gsshk='ssh-keygen -t rsa'
+alias csshk='pbcopy < ~/.ssh/id_rsa.pub'
