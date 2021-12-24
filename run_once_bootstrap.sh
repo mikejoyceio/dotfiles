@@ -46,8 +46,6 @@ CASKS=(
 MAS=(
   # 1password
   1333542190
-  # Bear
-  1091189122
   # LINE
   539883307
   # Numbers
