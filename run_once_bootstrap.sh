@@ -32,6 +32,7 @@ CASKS=(
   gimp
   keybase
   lepton
+  notion
   pixelsnap
   postman
   sip
