@@ -1,41 +1,29 @@
-# Navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
+# Browsers
+alias ff='open -a Firefox'
+alias chr='open -a Google Chrome'
+alias saf='open -a Safari'
+alias qff="osascript -e 'quit app "'"Firefox"'"'"
+alias qchr="osascript -e 'quit app "'"Google Chrome"'"'"
+alias qsaf="osascript -e 'quit app "'"Safari"'"'"
 
 # Directory Aliases
 {{ range $key, $value := .aliases.directories -}}
 alias {{ $key }}='cd {{ $value }}'
 {{ end }}
 
-# SSH Aliases
-{{ range $key, $value := .aliases.ssh -}}
-alias {{ $key }}='ssh {{ $value }}'
-{{ end }}
-
-# Open Browsers
-alias ff='open -a Firefox'
-alias chr='open -a Google Chrome'
-alias saf='open -a Safari'
-
-# Close Browsers
-alias qff="osascript -e 'quit app "'"Firefox"'"'"
-alias qchr="osascript -e 'quit app "'"Google Chrome"'"'"
-alias qsaf="osascript -e 'quit app "'"Safari"'"'"
-
-# Run Python Simple Server
-alias pyserve='python -m SimpleHTTPServer'
-
-# Clear terminal
-alias c='clear'
-
-# Reload shell
-alias reload="exec ${SHELL} -l ; . ~/.zshrc"
+# Docker
+alias dsa='docker stop $(docker ps -aq)'
+alias dra='docker rm $(docker ps -aq)'
 
 # Laravel
 alias sail='bash vendor/bin/sail'
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
 # PostgreSQL
 alias pgstart='brew services start postgresql'
@@ -49,6 +37,18 @@ alias rdbm='rails db:migrate RAILS_ENV=development'
 alias rdbrp='rails db:seed:replant'
 alias rdbr='rails db:reset'
 
-# Docker
-alias dsa='docker stop $(docker ps -aq)'
-alias dra='docker rm $(docker ps -aq)'
+# Run Python Simple Server
+alias pyserve='python -m SimpleHTTPServer'
+
+# Shell
+alias c='clear'
+alias reload="exec ${SHELL} -l ; . ~/.zshrc"
+
+# SSH Aliases
+{{ range $key, $value := .aliases.ssh -}}
+alias {{ $key }}='ssh {{ $value }}'
+{{ end }}
+
+# SSH Keys
+alias gsshk='ssh-keygen -t rsa'
+alias csshk='pbcopy < ~/.ssh/id_rsa.pub'
