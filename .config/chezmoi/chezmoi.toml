@@ -1,0 +1,14 @@
+[data.system]
+	user = ''
+
+[data.git]
+	name = ''
+	email = ''
+
+[data.aliases]
+
+	[data.aliases.directories]
+    alias = ''
+    
+	[data.aliases.ssh]
+		alias = ''
