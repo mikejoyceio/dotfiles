@@ -11,6 +11,7 @@ PACKAGES=(
   docker
   gatsby-cli
   gnupg
+  hugo
   localstack
   mas
   netlify-cli
