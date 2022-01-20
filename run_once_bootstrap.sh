@@ -4,6 +4,7 @@
 
 # Homebrew packages
 PACKAGES=(
+  angular-cli
   awscli
   bash-completion
   bash-git-prompt
