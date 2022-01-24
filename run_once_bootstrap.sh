@@ -21,6 +21,7 @@ PACKAGES=(
   postgresql
   spoof-mac
   tldr
+  vue-cli
   yarn
 )
 
