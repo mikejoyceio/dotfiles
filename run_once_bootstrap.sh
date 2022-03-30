@@ -19,6 +19,7 @@ PACKAGES=(
   node
   nvm
   postgresql
+  redis
   spoof-mac
   tldr
   vue-cli
