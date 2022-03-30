@@ -30,6 +30,7 @@ PACKAGES=(
 CASKS=(
   1password-cli
   atom
+  docker
   figma
   firefox
   gifox
