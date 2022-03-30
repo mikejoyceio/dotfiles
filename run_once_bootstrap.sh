@@ -12,6 +12,7 @@ PACKAGES=(
   docker
   gatsby-cli
   gnupg
+  graphviz
   hugo
   localstack
   mas
