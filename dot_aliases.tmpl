@@ -44,6 +44,9 @@ alias pyserve='python -m SimpleHTTPServer'
 alias c='clear'
 alias reload="exec ${SHELL} -l ; . ~/.zshrc"
 
+# Spring
+alias ss='spring stop'
+
 # SSH Aliases
 {{ range $key, $value := .aliases.ssh -}}
 alias {{ $key }}='ssh {{ $value }}'
