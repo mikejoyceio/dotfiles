@@ -6,6 +6,9 @@ alias qff="osascript -e 'quit app "'"Firefox"'"'"
 alias qchr="osascript -e 'quit app "'"Google Chrome"'"'"
 alias qsaf="osascript -e 'quit app "'"Safari"'"'"
 
+# Chezmoi
+alias cz='chezmoi'
+
 # Directory Aliases
 {{ range $key, $value := .aliases.directories -}}
 alias {{ $key }}='cd {{ $value }}'
