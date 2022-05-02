@@ -1,9 +1,13 @@
+{{- $systemUser := promptString "system user" -}}
+{{- $gitName := promptString "git name" -}}
+{{- $gitEmail := promptString "git email" -}}
+
 [data.system]
-	user = ''
+	user = {{ $systemUser | quote }}
 
 [data.git]
-	name = ''
-	email = ''
+	name = {{ $gitName | quote }}
+	email = {{ $gitEmail | quote }}
 
 [data.aliases]
 
