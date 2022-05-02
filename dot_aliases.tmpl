@@ -12,11 +12,11 @@ alias {{ $key }}='cd {{ $value }}'
 {{ end }}
 
 # Docker
+alias dcu='docker-compose up'
 alias dic='docker inspect'
 alias dla='docker ps -a'
 alias dpa='docker system prune -a'
 alias dra='docker rm $(docker ps -aq)'
-alias dsa='docker stop $(docker ps -aq)'
 
 # Laravel
 alias sail='bash vendor/bin/sail'
@@ -47,6 +47,9 @@ alias pyserve='python -m SimpleHTTPServer'
 alias c='clear'
 alias reload="exec ${SHELL} -l ; . ~/.zshrc"
 
+# Spring
+alias ss='spring stop'
+
 # SSH Aliases
 {{ range $key, $value := .aliases.ssh -}}
 alias {{ $key }}='ssh {{ $value }}'
@@ -55,3 +58,6 @@ alias {{ $key }}='ssh {{ $value }}'
 # SSH Keys
 alias gsshk='ssh-keygen -t rsa'
 alias csshk='pbcopy < ~/.ssh/id_rsa.pub'
+
+# Yarn
+alias yui='yarn upgrade-interactive --latest'

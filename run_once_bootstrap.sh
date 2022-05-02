@@ -12,6 +12,7 @@ PACKAGES=(
   docker
   gatsby-cli
   gnupg
+  graphviz
   hugo
   localstack
   mas
@@ -19,6 +20,7 @@ PACKAGES=(
   node
   nvm
   postgresql
+  redis
   spoof-mac
   tldr
   vue-cli
@@ -29,6 +31,7 @@ PACKAGES=(
 CASKS=(
   1password-cli
   atom
+  docker
   figma
   firefox
   gifox
