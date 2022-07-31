@@ -1,6 +1,7 @@
 {{- $systemUser := promptString "system user" -}}
 {{- $gitName := promptString "git name" -}}
 {{- $gitEmail := promptString "git email" -}}
+{{- $contentfulManagementToken := promptString "contentful management token" -}}
 
 [data.system]
 	user = {{ $systemUser | quote }}
@@ -8,6 +9,9 @@
 [data.git]
 	name = {{ $gitName | quote }}
 	email = {{ $gitEmail | quote }}
+
+[data.tokens]
+	contentful = {{ $contentfulManagementToken | quote }}
 
 [data.aliases]
 
