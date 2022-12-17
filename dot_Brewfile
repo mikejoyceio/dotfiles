@@ -61,6 +61,7 @@ cask "sip"
 cask "sketch"
 cask "skype"
 cask "slack"
+cask "visual-studio-code"
 
 mas "1password", id: 1333542190
 mas "Harvest", id: 506189836
