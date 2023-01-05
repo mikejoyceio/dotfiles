@@ -65,6 +65,7 @@ cask "visual-studio-code"
 mas "1password", id: 1333542190
 mas "Harvest", id: 506189836
 mas "LINE", id: 539883307
+mas "Messenger", id: 1480068668
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
