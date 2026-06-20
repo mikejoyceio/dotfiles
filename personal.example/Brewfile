@@ -1,0 +1,7 @@
+# Example only. The real private personal companion repo uses the same filename:
+# ~/Development/dotfiles-personal/Brewfile
+#
+# Personal-only applications belong in that private repository.
+
+# cask "personal-only-application"
+# mas "Personal App", id: 123456789

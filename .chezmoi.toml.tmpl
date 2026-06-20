@@ -1,0 +1,11 @@
+{{- $gitName := promptStringOnce . "git-name" "Git author name" -}}
+{{- $gitEmail := promptStringOnce . "git-email" "Git author email" -}}
+
+[data.git]
+    name = {{ $gitName | quote }}
+    email = {{ $gitEmail | quote }}
+
+[data.aliases.directories]
+    dev = "~/Development"
+
+[data.aliases.ssh]

@@ -1,0 +1,107 @@
+# Angular
+alias nggc='ng generate component'
+alias nggd='ng generate directive'
+alias nggm='ng generate module'
+alias nggs='ng generate service'
+
+# Browsers
+alias ff='open -a Firefox'
+alias chr='open -a Google Chrome'
+alias saf='open -a Safari'
+alias qff="osascript -e 'quit app "'"Firefox"'"'"
+alias qchr="osascript -e 'quit app "'"Google Chrome"'"'"
+alias qsaf="osascript -e 'quit app "'"Safari"'"'"
+
+# Chezmoi
+alias cz='chezmoi'
+alias cza='chezmoi apply'
+alias czcd='chezmoi cd'
+alias czi='chezmoi init'
+
+# Directory Aliases
+{{ range $key, $value := .aliases.directories -}}
+alias {{ $key }}='cd {{ $value }}'
+{{ end }}
+
+# Docker
+alias dcu='docker-compose up'
+alias dic='docker inspect'
+alias dla='docker ps -a'
+alias dpa='docker system prune -a'
+alias dra='docker rm $(docker ps -aq)'
+alias dsa='docker stop $(docker ps -aq)'
+
+# Laravel
+alias sail='bash vendor/bin/sail'
+
+# mkcert
+alias mk='mkcert'
+alias mki='mkcert -install'
+alias mku='mkcert -uninstall'
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Node
+alias nims5='export NODE_OPTIONS="--max-old-space-size=5120"'
+alias nims6='export NODE_OPTIONS="--max-old-space-size=6144"'
+alias nims7='export NODE_OPTIONS="--max-old-space-size=7168"'
+alias nims8='export NODE_OPTIONS="--max-old-space-size=8192"'
+
+# npm
+alias npmi='npm install'
+alias npms='npm run start'
+alias npmu='npm uninstall'
+
+# nvm
+alias nvmi='nvm install'
+alias nvml='nvm list'
+alias nvmu='nvm use'
+
+# PostgreSQL
+alias pgstart='brew services start postgresql'
+alias pgstop='brew services stop postgresql'
+alias pgrestart='brew services restart postgresql'
+alias pgstatus='brew services list | grep postgres'
+
+# Rails
+alias rc='rails console -e development'
+alias rdbm='rails db:migrate RAILS_ENV=development'
+alias rdbrp='rails db:seed:replant'
+alias rdbr='rails db:reset'
+
+# Run Python Simple Server
+alias pys='python -m SimpleHTTPServer'
+
+# RVM
+alias rvmfp="rvm fix-permissions user"
+
+# Shell
+alias c='clear'
+alias e='exit'
+alias reload="exec ${SHELL} -l ; . ~/.zshrc"
+
+# SSH Aliases
+{{ range $key, $value := .aliases.ssh -}}
+alias {{ $key }}='ssh {{ $value }}'
+{{ end }}
+
+# SSH Keys
+alias gsshk='ssh-keygen -t rsa'
+alias csshk='pbcopy < ~/.ssh/id_rsa.pub'
+
+# Yarn
+alias y='yarn'
+alias ya='yarn add'
+alias ycc='yarn cache clean'
+alias yd='yarn dev'
+alias yl='yarn lint'
+alias ylf='yarn lint --fix'
+alias yp='yarn prod'
+alias yr='yarn remove'
+alias ys='yarn start'
+alias yui='yarn upgrade-interactive --latest'

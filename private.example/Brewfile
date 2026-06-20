@@ -1,0 +1,9 @@
+# Example only. The real private companion repo uses the same filename:
+# ~/Development/dotfiles-private/Brewfile
+#
+# Keep sensitive applications shared by both machine profiles out of the public
+# repository. Profile-specific apps belong in dotfiles-work or
+# dotfiles-personal instead.
+
+# brew "vendor-specific-cli"
+# cask "private-application"

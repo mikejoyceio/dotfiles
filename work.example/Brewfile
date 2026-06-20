@@ -1,0 +1,8 @@
+# Example only. The real private work companion repo uses the same filename:
+# ~/Development/dotfiles-work/Brewfile
+#
+# Employer/client tooling, work-only applications, cloud/vendor CLIs, VPNs,
+# databases, and work security tools belong in that private repository.
+
+# brew "work-vendor-cli"
+# cask "work-only-application"

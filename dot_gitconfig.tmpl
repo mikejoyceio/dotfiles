@@ -1,0 +1,59 @@
+[user]
+    name = {{ .git.name | quote }}
+    email = {{ .git.email | quote }}
+
+[alias]
+    a = add
+    aa = add .
+    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    c = commit -m
+    ca = commit -am
+    co = checkout
+    cob = checkout -b
+    cod = checkout develop
+    com = checkout master
+    comn = checkout main
+    conf = config --global -l
+    cos = checkout staging
+    d = diff
+    dc = diff --check
+    dv = difftool -t vimdiff -y
+    fa = fetch --all
+    fl = log -u
+    g = grep -niro
+    graph = log --oneline --graph --decorate
+    l = log
+    last = log -1 HEAD --stat
+    ll = log --oneline
+    mc = merge --continue --no-edit
+    ph = push origin
+    phd = push origin develop
+    phm = push origin master
+    phmn = push origin main
+    phs = push origin staging
+    pl = pull origin
+    pld = pull origin develop
+    plm = pull origin master
+    plmn = pull origin main
+    pls = pull origin staging
+    r = reset
+    rh = reset head
+    s = status
+    se = !git rev-list --all | xargs git grep -F
+    undo = reset --soft HEAD~1
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+
+[pull]
+    rebase = true
+
+[fetch]
+    prune = true
+
+[push]
+    autoSetupRemote = true
+
+[includeIf "gitdir:~/Development/work/"]
+    path = ~/Development/dotfiles-work/gitconfig

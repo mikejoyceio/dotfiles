@@ -1,0 +1,42 @@
+# History
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+setopt append_history share_history hist_ignore_dups hist_reduce_blanks
+
+# Completion
+autoload -Uz compinit && compinit
+
+# Layered private configuration
+PRIVATE_DOTFILES=${DOTFILES_PRIVATE_DIR:-"$HOME/Development/dotfiles-private"}
+WORK_DOTFILES=${DOTFILES_WORK_DIR:-"$HOME/Development/dotfiles-work"}
+PERSONAL_DOTFILES=${DOTFILES_PERSONAL_DIR:-"$HOME/Development/dotfiles-personal"}
+
+if [ -r "$PRIVATE_DOTFILES/private.zsh" ]; then
+  source "$PRIVATE_DOTFILES/private.zsh"
+fi
+
+if [ -r "$PRIVATE_DOTFILES/machine.zsh" ]; then
+  source "$PRIVATE_DOTFILES/machine.zsh"
+fi
+
+hostname_config="$PRIVATE_DOTFILES/machine/$(hostname -s).zsh"
+if [ -r "$hostname_config" ]; then
+  source "$hostname_config"
+fi
+unset hostname_config
+
+profile_file="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles/profile"
+if [ -z "${DOTFILES_PROFILE:-}" ] && [ -r "$profile_file" ]; then
+  DOTFILES_PROFILE=$(head -n 1 "$profile_file")
+fi
+unset profile_file
+
+case "${DOTFILES_PROFILE:-}" in
+  work)
+    [ -r "$WORK_DOTFILES/work.zsh" ] && source "$WORK_DOTFILES/work.zsh"
+    ;;
+  personal)
+    [ -r "$PERSONAL_DOTFILES/personal.zsh" ] && source "$PERSONAL_DOTFILES/personal.zsh"
+    ;;
+esac

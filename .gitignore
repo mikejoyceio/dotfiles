@@ -1,0 +1,10 @@
+.DS_Store
+*.local
+*.secret
+*.secrets
+.env
+.env.*
+!.env.example
+
+# The full software inventory belongs in the private companion repo.
+Brewfile.private
