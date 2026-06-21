@@ -1,7 +1,5 @@
 # Public baseline shared by work and personal computers.
-# Homebrew Bundle, homebrew/core, and homebrew/cask are built into Homebrew.
-
-tap "homebrew/services"
+# Homebrew Bundle, formulae, casks, and services are built into Homebrew.
 
 # Required by this dotfiles repository.
 brew "chezmoi"
