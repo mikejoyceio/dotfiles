@@ -188,6 +188,9 @@ PROFILE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles/profile"
 mkdir -p "$(dirname "$PROFILE_FILE")"
 printf '%s\n' "$PROFILE" > "$PROFILE_FILE"
 
+echo "Creating the Screenshots directory..."
+mkdir -p "$HOME/Screenshots"
+
 echo "Applying dotfiles..."
 chezmoi -S "$PUBLIC_DIR" apply --init
 

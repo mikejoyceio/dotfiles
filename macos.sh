@@ -20,6 +20,10 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 
+# Save screenshots as PNG files in ~/Screenshots.
+defaults write com.apple.screencapture type -string "png"
+defaults write com.apple.screencapture location -string "$HOME/Screenshots"
+
 # Dock: position on the left and hide automatically.
 defaults write com.apple.dock orientation -string "left"
 defaults write com.apple.dock autohide -bool true
