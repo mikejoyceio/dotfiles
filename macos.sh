@@ -39,6 +39,10 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
 defaults write com.apple.menuextra.clock ShowDate -int 0
 
+# Terminal: use the built-in Clear Dark profile.
+defaults write com.apple.Terminal "Default Window Settings" -string "Clear Dark"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Clear Dark"
+
 # Keyboard: free Command-Space for the Raycast global hotkey.
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
   '<dict><key>enabled</key><false/></dict>'
