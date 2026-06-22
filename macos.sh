@@ -12,6 +12,9 @@ echo "Applying conservative macOS preferences on macOS $version..."
 # Appearance: use Dark Mode.
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
+# Windows: fill the available space when a title bar is double-clicked.
+defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Fill"
+
 # Finder: show all filename extensions.
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
