@@ -11,6 +11,7 @@ brew "node"
 brew "nvm"
 
 brew "tlrc"
+brew "tree"
 
 cask "docker-desktop"
 cask "stats"
