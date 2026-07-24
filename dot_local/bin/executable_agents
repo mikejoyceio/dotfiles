@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#
+# agents: list running worktree tmux sessions and attach to one.
+# With a session name as the only argument, attach to it directly.
+
+set -euo pipefail
+
+if [[ $# -gt 1 ]]; then
+  echo "Usage: agents [session-name]" >&2
+  exit 1
+fi
+
+if ! command -v tmux >/dev/null 2>&1; then
+  echo "agents: tmux is not installed" >&2
+  exit 1
+fi
+
+attach() {
+  if [[ -n "${TMUX:-}" ]]; then
+    exec tmux switch-client -t "=$1"
+  else
+    exec tmux attach-session -t "=$1"
+  fi
+}
+
+if [[ $# -eq 1 ]]; then
+  if tmux has-session -t "=$1" 2>/dev/null; then
+    attach "$1"
+  fi
+  echo "agents: session not found: $1" >&2
+  exit 1
+fi
+
+sessions="$(tmux list-sessions -F '#{session_name}|#{@worktree_root}|#{session_attached}' 2>/dev/null || true)"
+
+if [[ -z "$sessions" ]]; then
+  echo "No agent sessions are running."
+  echo "Start one from a worktree with: wtmux"
+  exit 0
+fi
+
+names=()
+roots=()
+attached=()
+while IFS='|' read -r name root is_attached; do
+  names+=("$name")
+  roots+=("$root")
+  attached+=("$is_attached")
+done <<< "$sessions"
+
+count=${#names[@]}
+
+if [[ $count -eq 1 ]]; then
+  attach "${names[0]}"
+fi
+
+echo "Agent sessions:"
+for ((i = 0; i < count; i++)); do
+  marker=' '
+  if [[ "${attached[$i]}" != "0" ]]; then
+    marker='*'
+  fi
+  printf '%s %2d) %s  %s\n' "$marker" "$((i + 1))" "${names[$i]}" "${roots[$i]}"
+done
+
+if ! read -r -p "Attach to [1-$count]: " choice; then
+  echo >&2
+  exit 1
+fi
+
+if [[ "$choice" =~ ^[0-9]+$ ]] && ((choice >= 1 && choice <= count)); then
+  attach "${names[$((choice - 1))]}"
+fi
+
+echo "agents: invalid choice: $choice" >&2
+exit 1
