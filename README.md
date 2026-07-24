@@ -80,12 +80,30 @@ wtmux
 # Create the session and start Claude Code
 wtmux claude
 
+# Create the session and start Cursor CLI
+wtmux agent
+
+# Pass arguments to Claude Code
+wtmux claude --resume
+
+# Pass arguments to Cursor CLI
+wtmux agent resume
+
 # List and attach to running worktree sessions
 agents
 
 # Attach directly to a named session
 agents repository--branch-name
 ```
+
+The command runs only when the session is first created. Running `wtmux`
+again for the same worktree, with or without a command, reattaches to the
+existing session and never starts a second agent on top of the running one.
+To switch agents, exit the running agent and start the other one from the
+shell inside the same session (`exit`, then `agent` or `claude`).
+
+Recent Cursor CLI installations expose the command as `agent`; older
+installations may use the backward-compatible alias `cursor-agent`.
 
 Detaching (`Ctrl+b`, then `d`) leaves the session and anything running in it,
 such as Claude Code, alive.
