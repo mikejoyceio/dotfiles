@@ -67,6 +67,29 @@ Review changes before applying them manually with:
 chezmoi -S "$HOME/Development/dotfiles" diff
 ```
 
+## Worktree tmux sessions
+
+`wtmux` and `agents` manage persistent tmux sessions for Git worktrees, so
+long-running tools keep working after a disconnect and can be reattached
+locally or over SSH.
+
+```sh
+# Enter or create a tmux session for the current worktree
+wtmux
+
+# Create the session and start Claude Code
+wtmux claude
+
+# List and attach to running worktree sessions
+agents
+
+# Attach directly to a named session
+agents repository--branch-name
+```
+
+Detaching (`Ctrl+b`, then `d`) leaves the session and anything running in it,
+such as Claude Code, alive.
+
 ## Security boundary
 
 Do not commit credentials, tokens, employer/client details, private hostnames,

@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+#
+# wtmux: create or attach to a persistent tmux session for the current
+# Git worktree. Outside a repository, the current directory is used.
+# Any arguments are run as a command inside the session, only when the
+# session is first created.
+
+set -euo pipefail
+
+if ! command -v tmux >/dev/null 2>&1; then
+  echo "wtmux: tmux is not installed" >&2
+  exit 1
+fi
+
+# Resolve the worktree root, falling back to the physical working
+# directory outside of a Git repository.
+if ! root="$(git rev-parse --show-toplevel 2>/dev/null)"; then
+  root="$(pwd -P)"
+fi
+
+# Build the session name from the worktree directory and, when on a
+# branch (including one with no commits yet), the branch name.
+name="$(basename "$root")"
+branch="$(git symbolic-ref --short -q HEAD 2>/dev/null || true)"
+if [[ -n "$branch" ]]; then
+  name="${name}--${branch}"
+fi
+
+# Session names must be safe for tmux targets: replace anything outside
+# a conservative character set and cap the length.
+name="$(printf '%s' "$name" | tr -c 'A-Za-z0-9_-' '-')"
+name="${name:0:100}"
+
+created=0
+if ! tmux has-session -t "=$name" 2>/dev/null; then
+  tmux new-session -d -s "$name" -c "$root" -n agent
+  # set-option does not accept the '=' exact-match target prefix.
+  tmux set-option -t "$name" @worktree_root "$root"
+  created=1
+fi
+
+# Run the requested command only on first creation, quoting each
+# argument so it is passed through literally.
+if [[ $created -eq 1 && $# -gt 0 ]]; then
+  cmd=""
+  for arg in "$@"; do
+    cmd="${cmd}$(printf '%q ' "$arg")"
+  done
+  # send-keys does not accept the '=' exact-match target prefix either.
+  tmux send-keys -t "$name" -l "$cmd"
+  tmux send-keys -t "$name" Enter
+fi
+
+if [[ -n "${TMUX:-}" ]]; then
+  exec tmux switch-client -t "=$name"
+else
+  exec tmux attach-session -t "=$name"
+fi
