@@ -55,5 +55,11 @@
 [push]
     autoSetupRemote = true
 
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
 [includeIf "gitdir:~/Development/work/"]
     path = ~/Development/dotfiles-work/gitconfig
+
+[include]
+    path = ~/.gitconfig.local
