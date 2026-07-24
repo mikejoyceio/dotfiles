@@ -160,6 +160,16 @@ if [ "${DOTFILES_BOOTSTRAP_FROM_REPO:-false}" != true ]; then
   exec "$PUBLIC_DIR/bootstrap.sh" "$@"
 fi
 
+PROFILE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles/profile"
+mkdir -p "$(dirname "$PROFILE_FILE")"
+printf '%s\n' "$PROFILE" > "$PROFILE_FILE"
+
+echo "Creating the Screenshots directory..."
+mkdir -p "$HOME/Screenshots"
+
+echo "Applying dotfiles..."
+chezmoi -S "$PUBLIC_DIR" apply --init
+
 echo "Installing public Homebrew bundle..."
 brew bundle --file "$PUBLIC_DIR/Brewfile"
 
@@ -183,16 +193,6 @@ fi
 
 echo "Installing $PROFILE Homebrew bundle..."
 brew bundle --file "$PROFILE_DIR/Brewfile"
-
-PROFILE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles/profile"
-mkdir -p "$(dirname "$PROFILE_FILE")"
-printf '%s\n' "$PROFILE" > "$PROFILE_FILE"
-
-echo "Creating the Screenshots directory..."
-mkdir -p "$HOME/Screenshots"
-
-echo "Applying dotfiles..."
-chezmoi -S "$PUBLIC_DIR" apply --init
 
 if [ "$APPLY_MACOS" = true ]; then
   "$PUBLIC_DIR/macos.sh"
