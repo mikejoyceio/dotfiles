@@ -16,6 +16,7 @@ brew "tlrc"
 brew "tree"
 
 cask "tailscale-app"
+cask "termius"
 cask "docker-desktop"
 cask "stats"
 cask "ngrok"
