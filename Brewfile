@@ -10,6 +10,7 @@ brew "gh"
 brew "node"
 brew "nvm"
 
+brew "tmux"
 brew "ripgrep"
 brew "tlrc"
 brew "tree"
