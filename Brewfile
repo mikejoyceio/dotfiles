@@ -15,6 +15,7 @@ brew "ripgrep"
 brew "tlrc"
 brew "tree"
 
+cask "tailscale-app"
 cask "docker-desktop"
 cask "stats"
 cask "ngrok"
