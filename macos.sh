@@ -46,6 +46,11 @@ defaults write com.apple.menuextra.clock ShowDate -int 0
 defaults write com.apple.Terminal "Default Window Settings" -string "Clear Dark"
 defaults write com.apple.Terminal "Startup Window Settings" -string "Clear Dark"
 
+# Ghostty: setting the default terminal app requires a one-time app action.
+if [ -d "/Applications/Ghostty.app" ]; then
+  echo "Ghostty: choose Ghostty > Set Ghostty as Default Terminal App if needed."
+fi
+
 # Keyboard: free Command-Space for the Raycast global hotkey.
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
   '<dict><key>enabled</key><false/></dict>'
