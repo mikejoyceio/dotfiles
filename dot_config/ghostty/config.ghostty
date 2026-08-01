@@ -1,0 +1,22 @@
+# Ghostty configuration.
+
+# Dark built-in theme; no private theme asset is required.
+theme = Catppuccin Mocha
+
+# Font and layout.
+font-family = JetBrains Mono
+font-size = 14
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+
+# Native macOS window behavior.
+macos-titlebar-style = tabs
+window-save-state = always
+
+# Shell integration for cursor position, sudo, and window titles.
+shell-integration-features = cursor,sudo,title
+
+# Ergonomics.
+cursor-style = block
+keybind = super+shift+comma=reload_config
