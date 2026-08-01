@@ -17,6 +17,7 @@ brew "tree"
 
 cask "tailscale-app"
 cask "termius"
+cask "ghostty"
 cask "docker-desktop"
 cask "stats"
 cask "ngrok"
