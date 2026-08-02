@@ -2,3 +2,9 @@
 # (Host-specific blocks first, shared catch-all second.)
 Include ~/Development/dotfiles-personal/ssh_config
 Include ~/Development/dotfiles-private/ssh_config
+
+# Downgrade TERM for remote sessions. Ghostty's xterm-ghostty terminfo
+# isn't present on remote hosts, which breaks screen/tmux. OpenSSH sends
+# TERM specially, so SetEnv is honored without remote AcceptEnv.
+Host *
+    SetEnv TERM=xterm-256color
