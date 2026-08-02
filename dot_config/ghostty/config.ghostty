@@ -20,4 +20,4 @@ shell-integration-features = cursor,sudo,title
 # Ergonomics.
 cursor-style = block
 keybind = super+shift+comma=reload_config
-keybind = global:cmd+backquote=toggle_quick_terminal
+keybind = global:alt+backquote=toggle_quick_terminal
