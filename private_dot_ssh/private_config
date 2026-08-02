@@ -1,0 +1,4 @@
+# Host and agent configuration live in the private layers, Included below.
+# (Host-specific blocks first, shared catch-all second.)
+Include ~/Development/dotfiles-personal/ssh_config
+Include ~/Development/dotfiles-private/ssh_config
