@@ -1,0 +1,87 @@
+{
+    "global": {
+        "Neru · Global": [
+            ["Show clickable hints", "control", 49],
+            ["Enter Neru mode", "control", 41]
+        ],
+        "Neru · Mode": [
+            ["Open hints", "", 4],
+            ["Open grid", "", 5],
+            ["Open recursive grid", "", 15],
+            ["Open scroll mode", "", 1],
+            ["Go back", "shift", 4],
+            ["Go forward", "shift", 37]
+        ],
+        "Neru · Hints": [
+            ["Select hint: a s d f g h j k l", "", -1],
+            ["Exit hints", "", 53],
+            ["Search hints", "", 44],
+            ["Delete search character", "", 51],
+            ["Cycle to next hint", "", 48],
+            ["Cycle to previous hint", "shift", 48],
+            ["Left-click hint", "shift", 37],
+            ["Right-click hint", "shift", 15],
+            ["Middle-click hint", "shift", 46],
+            ["Hold left button on hint", "shift", 34],
+            ["Release left button on hint", "shift", 32],
+            ["Move pointer up in hints", "", 126],
+            ["Move pointer down in hints", "", 125],
+            ["Move pointer left in hints", "", 123],
+            ["Move pointer right in hints", "", 124]
+        ],
+        "Neru · Grid": [
+            ["Select grid cell: a-z except o", "", -1],
+            ["Exit grid", "", 53],
+            ["Toggle cursor following in grid", "", 50],
+            ["Reset grid", "", 49],
+            ["Go back one grid level", "", 51],
+            ["Left-click grid position", "shift", 37],
+            ["Right-click grid position", "shift", 15],
+            ["Middle-click grid position", "shift", 46],
+            ["Hold left button at grid position", "shift", 34],
+            ["Release left button at grid position", "shift", 32],
+            ["Move pointer up in grid", "", 126],
+            ["Move pointer down in grid", "", 125],
+            ["Move pointer left in grid", "", 123],
+            ["Move pointer right in grid", "", 124]
+        ],
+        "Neru · Recursive Grid": [
+            ["Select cell: r t y / f g h / v b n", "", -1],
+            ["Exit recursive grid", "", 53],
+            ["Toggle cursor following in recursive grid", "", 50],
+            ["Reset recursive grid", "", 49],
+            ["Go back one recursive grid level", "", 51],
+            ["Left-click recursive grid position", "shift", 37],
+            ["Right-click recursive grid position", "shift", 15],
+            ["Middle-click recursive grid position", "shift", 46],
+            ["Hold left button at recursive grid position", "shift", 34],
+            ["Release left button at recursive grid position", "shift", 32],
+            ["Move pointer up in recursive grid", "", 126],
+            ["Move pointer down in recursive grid", "", 125],
+            ["Move pointer left in recursive grid", "", 123],
+            ["Move pointer right in recursive grid", "", 124]
+        ],
+        "Neru · Scroll": [
+            ["Exit scroll mode", "", 53],
+            ["Scroll up", "", 40],
+            ["Scroll down", "", 38],
+            ["Scroll left", "", 4],
+            ["Scroll right", "", 37],
+            ["Go to top: g g", "", -1],
+            ["Go to bottom", "shift", 5],
+            ["Page up with U", "", 32],
+            ["Page up", "", 116],
+            ["Page down with D", "", 2],
+            ["Page down", "", 121],
+            ["Left-click while scrolling", "shift", 37],
+            ["Right-click while scrolling", "shift", 15],
+            ["Middle-click while scrolling", "shift", 46],
+            ["Hold left button while scrolling", "shift", 34],
+            ["Release left button while scrolling", "shift", 32],
+            ["Move pointer up while scrolling", "", 126],
+            ["Move pointer down while scrolling", "", 125],
+            ["Move pointer left while scrolling", "", 123],
+            ["Move pointer right while scrolling", "", 124]
+        ]
+    }
+}
