@@ -108,6 +108,48 @@ installations may use the backward-compatible alias `cursor-agent`.
 Detaching (`Ctrl+b`, then `d`) leaves the session and anything running in it,
 such as Claude Code, alive.
 
+## PKM Consume command
+
+`consume` sends one exact source to the Hermes `pkm` profile and its existing
+`consume` skill. The wrapper does not write Obsidian files, classify sources,
+normalize URLs, or duplicate any other PKM behavior.
+
+```sh
+consume 'https://x.com/example/status/123?s=20'
+consume 'https://www.linkedin.com/posts/example'
+consume 'https://example.com/article?ref=home&campaign=reading'
+consume 'A book title to read later'
+consume "$HOME/Documents/Reading List/book draft.pdf"
+```
+
+Quote sources containing spaces or shell-sensitive characters such as `&`.
+The v0.1 interface accepts exactly one argument and does not read stdin.
+
+The command requires Hermes, a profile named `pkm`, a valid `terminal.cwd` for
+that profile, and the `consume` skill installed in the profile.
+
+The Raycast Script Command is installed by chezmoi at:
+
+```text
+~/.config/raycast/script-commands/consume.sh
+```
+
+In Raycast Preferences, open Extensions, click `+`, choose `Add Script
+Directory`, and select `~/.config/raycast/script-commands`. The command accepts
+an optional source argument and otherwise uses the clipboard. A global hotkey
+can be assigned after Raycast indexes the command.
+
+The reliable browser workflow is:
+
+```text
+copy the current URL → run Consume → Return
+```
+
+Current-browser automation is intentionally not included. A future full
+Raycast extension may use Raycast's Browser Extension API if clipboard use
+proves too costly; browser-specific AppleScript should not be added merely to
+avoid one copy action.
+
 ## Security boundary
 
 Do not commit credentials, tokens, employer/client details, private hostnames,
