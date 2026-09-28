@@ -1,0 +1,9 @@
+{{- $consumeMode := "local" -}}
+{{- if hasKey . "consume" -}}
+{{- $consumeMode = index (index . "consume") "mode" | default "local" -}}
+{{- end -}}
+{{- if eq $consumeMode "remote" -}}
+{{ template "consume-remote-client" . }}
+{{- else -}}
+{{ template "consume-local" . }}
+{{- end -}}

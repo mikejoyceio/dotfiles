@@ -4,6 +4,13 @@ bootstrap.sh
 macos.sh
 sync.sh
 tests
+{{- $consumeMode := "local" }}
+{{- if hasKey . "consume" }}
+{{- $consumeMode = index (index . "consume") "mode" | default "local" }}
+{{- end }}
+{{- if ne $consumeMode "local" }}
+.local/bin/consume-remote
+{{- end }}
 personal.example
 private.example
 work.example

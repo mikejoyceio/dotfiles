@@ -1,0 +1,10 @@
+#!/bin/sh
+{{- $consumeMode := "local" }}
+{{- if hasKey . "consume" }}
+{{- $consumeMode = index (index . "consume") "mode" | default "local" }}
+{{- end }}
+{{- if eq $consumeMode "remote" }}
+rm -f {{ joinPath .chezmoi.destDir ".local/bin/consume-remote" | quote }}
+{{- else }}
+:
+{{- end }}

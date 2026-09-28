@@ -2,7 +2,7 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
-cli="$repo_root/dot_local/bin/executable_consume"
+cli="$repo_root/.chezmoitemplates/consume-local"
 raycast="$repo_root/dot_config/raycast/script-commands/executable_consume.sh"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT

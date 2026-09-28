@@ -1,5 +1,7 @@
 {{- $gitName := promptStringOnce . "git.name" "Git author name" -}}
 {{- $gitEmail := promptStringOnce . "git.email" "Git author email" -}}
+{{- $consumeModes := list "local" "remote" -}}
+{{- $consumeMode := promptChoiceOnce . "consume.mode" "Consume execution mode" $consumeModes "local" -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
@@ -11,3 +13,6 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
     dev = "~/Development"
 
 [data.aliases.ssh]
+
+[data.consume]
+    mode = {{ $consumeMode | quote }}

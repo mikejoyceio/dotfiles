@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# consume: send one future-consumption source to the primary Mac over SSH.
+
+set -euo pipefail
+
+usage() {
+  printf 'Usage: consume <source>\n' >&2
+}
+
+if [[ $# -ne 1 ]]; then
+  usage
+  exit 64
+fi
+
+if [[ "$1" != *[![:space:]]* ]]; then
+  usage
+  exit 64
+fi
+
+source_value=$1
+remote_host=pkm-consume
+ssh_bin=${SSH_BIN:-}
+
+if [[ -z "$ssh_bin" ]]; then
+  if [[ -x /usr/bin/ssh ]]; then
+    ssh_bin=/usr/bin/ssh
+  elif command -v ssh >/dev/null 2>&1; then
+    ssh_bin="$(command -v ssh)"
+  fi
+fi
+
+if [[ -z "$ssh_bin" || ! -x "$ssh_bin" ]]; then
+  printf 'Error: SSH is not installed or executable.\n' >&2
+  exit 1
+fi
+
+printf '%s' "$source_value" |
+  "$ssh_bin" \
+    -o BatchMode=yes \
+    -o ConnectTimeout=10 \
+    -- "$remote_host" consume-remote

@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+#
+# consume-remote: bridge one SSH stdin source to the canonical consume command.
+
+set -euo pipefail
+
+if [[ $# -ne 0 ]]; then
+  printf 'Error: consume-remote reads one source from stdin.\n' >&2
+  exit 64
+fi
+
+ssh_session=false
+if [[ -n "${SSH_CONNECTION:-}${SSH_CLIENT:-}${SSH_TTY:-}" ]]; then
+  ssh_session=true
+  if [[ "${SSH_ORIGINAL_COMMAND:-}" != 'consume-remote' ]]; then
+    printf 'Error: unsupported remote command.\n' >&2
+    exit 64
+  fi
+fi
+
+set +e
+source_value="$(/bin/dd bs=1 count=65537 2>/dev/null; read_status=$?; printf '\034'; exit "$read_status")"
+read_status=$?
+set -e
+source_value=${source_value%$'\034'}
+
+if [[ $read_status -ne 0 ]]; then
+  printf 'Error: unable to read the remote source.\n' >&2
+  exit "$read_status"
+fi
+
+source_bytes="$(printf '%s' "$source_value" | /usr/bin/wc -c)"
+if [[ $source_bytes -gt 65536 ]]; then
+  printf 'Error: source exceeds 65536 bytes.\n' >&2
+  exit 64
+fi
+
+if [[ "$source_value" != *[![:space:]]* ]]; then
+  printf 'Error: provide one source on stdin.\n' >&2
+  exit 64
+fi
+
+if [[ "$ssh_session" == true ]]; then
+  consume_bin="$HOME/.local/bin/consume"
+else
+  consume_bin=${CONSUME_BIN:-"$HOME/.local/bin/consume"}
+fi
+if [[ ! -x "$consume_bin" ]]; then
+  printf 'Error: canonical consume command is unavailable: %s\n' "$consume_bin" >&2
+  exit 1
+fi
+
+exec "$consume_bin" "$source_value"
