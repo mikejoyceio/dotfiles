@@ -16,6 +16,7 @@ brew "tmux"
 brew "ripgrep"
 brew "tlrc"
 brew "tree"
+brew "ollama"
 
 cask "tailscale-app"
 cask "termius"
