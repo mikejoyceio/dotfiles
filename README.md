@@ -205,6 +205,10 @@ avoid one copy action.
 
 ## Security boundary
 
+Herdr setup, SSH troubleshooting, and backup policy are documented in
+`~/Development/dotfiles-private/HERDR.md`. Keep machine-specific details and
+configuration in the private layers; the public Brewfile only installs the app.
+
 Do not commit credentials, tokens, employer/client details, private hostnames,
 or a revealing software inventory here. Put shared sensitive configuration in
 `dotfiles-private`, employer/client tooling in `dotfiles-work`, and
